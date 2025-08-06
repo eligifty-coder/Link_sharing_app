@@ -3,7 +3,7 @@ import { Routers } from './Routes'
 
 const App = () => {
   return (
-    <Routers/>
+    <h1 className='text-red-500'>Hello world</h1>
   )
 }
 
