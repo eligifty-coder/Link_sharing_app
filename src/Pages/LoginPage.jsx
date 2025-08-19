@@ -6,48 +6,29 @@ import emailIcon from '../assets/EmailIcon.png'
 import passwordIcon from '../assets/PasswordLockIcon.png'
 export default function Login3() {
     return (
-    <div className='font-Instrument-sans flex flex-col gap-16 md:gap-12 bg-white '>
-        <div className='flex items-center gap-[0.5rem] text-gray-700 font-bold text-4xl md:justify-center px-8 md:0'> <img src={devLinkIcon} alt="/" /> devlinks</div>
-        <div className='w-full md:max-w-119 bg-red-500 mx-auto px-8 md:px-10 flex flex-col justify-center gap-10'>
-            <div>
-                <h2>Login</h2>
-                <p>Add your details below to get back into the app</p>
+    <div className='font-Instrument-sans flex flex-col gap-16 md:gap-12 bg-black/3 h-screen '>
+        <div className='flex items-center gap-[0.5rem] text-gray-700 font-bold text-4xl md:justify-center px-8 md:pt-10'> <img src={devLinkIcon} alt="/" /> devlinks</div>
+        <div className='w-full md:max-w-119 mx-auto px-8 md:p-10 flex flex-col justify-center gap-10 md:bg-white'>
+            <div className='leading-[150%]'>
+                <h2 className='text-[2rem] font-bold text-[#333] leading-[150%]' >Login</h2>
+                <p className='text-[1rem] text-[#737373]'>Add your details below to get back into the app</p>
             </div>
-            <form>
-                <div>
-                    <label htmlFor="email">Email address</label>
-                    <div> <img src={emailIcon} alt="/" /> <input type="email"  placeholder='e.g. alex@email.com'/></div>
+            <form className='flex flex-col gap-6'>
+                <div className='flex flex-col gap-2'>
+                    <label htmlFor="email" className='text-[0.75rem] text-[#333]' >Email address</label>
+                    <div className='flex gap-4 items-center p-4 text-[#D9D9D9] border-[0.0625rem] rounded-[0.5rem]'> <img  className='object-cover w-[0.8125rem] h-[0.625rem]' src={emailIcon} alt="/" /> <input className='font-[1rem] text-[#333333]' type="email"  placeholder='e.g. alex@email.com'/></div>
                 </div>
-                <div>
-                    <label htmlFor="password">Password </label>
-                    <div> <img src={passwordIcon} alt="/" /> <input type="password"  placeholder='Enter your password'/></div>
+                <div className='flex flex-col gap-2'>
+                    <label htmlFor="password" className='text-[0.75rem] text-[#333]'>Password </label>
+                    <di className='flex gap-4 items-center p-4 text-[#D9D9D9] border-[0.0625rem] rounded-[0.5rem]'> <img src={passwordIcon} alt="/" /> <input className='font-[1rem] text-[#333333]' type="password"  placeholder='Enter your password'/></di>
                 </div>
-                <button>Login</button>
-                <div>
-                    <p>Don’t have an account? </p>
-                    <button>Create account</button>
+                <button className='bg-[#633CFF] hover:bg-purple-900 rounded-[0.5rem] text-white  relative p-4 text-center text-[1rem] font-semibold '>Login</button>
+                <div className='flex flex-col items-center'>
+                    <p className='text-[#737373] font-[1rem]'>Don’t have an account? </p>
+                    <button className=' text-[#633CFF] hover:text-purple-900  font-[1rem]'>Create account</button>
                 </div>
             </form>
         </div>
     </div>
-    // <div className='w-full h-screen flex'>
-    //     <div className='grid grid-cols-1 md:grid-cols-2 m-auto h-[550px] shadow-lg shadow-gray-600 sm:max-w-[900px]'>
-    //         <div className='w-full h-[550px] hidden md:block'>
-    //             <img className='w-full h-full' src={trees} alt="/" />
-    //         </div>
-    //         <div className='p-4 flex flex-col justify-around'>
-    //             <form>
-    //                 <h2 className='text-4xl font-bold text-center mb-8'>BRAND.</h2>
-    //                 <div className='flex'>
-    //                     <input className='w-full border p-2 mr-2' type="text" placeholder='Username' />
-    //                     <input className='w-full border p-2' type="password" placeholder='Password' />
-    //                 </div>
-    //                 <button className='w-full py-2 my-4 bg-green-600 hover:bg-green-500'>Sign In</button>
-    //                 <p className='text-center'>Forgot Username or Password?</p>
-    //             </form>
-    //             <p className='text-center'>Sign Up</p>
-    //         </div>
-    //     </div>
-    // </div>
   )
 }
