@@ -1,13 +1,12 @@
-import React from 'react'
+import React, {useReducer} from 'react'
 
 import devLinkIcon from '../assets/devlinkIcon.png'
-import devLinkText from '../assets/devlinksText.png'
 import emailIcon from '../assets/EmailIcon.png'
 import passwordIcon from '../assets/PasswordLockIcon.png'
-export default function Login3() {
+export default function Login() {
     return (
     <div className='font-Instrument-sans flex flex-col gap-16 md:gap-12 bg-black/3 h-screen '>
-        <div className='flex items-center gap-[0.5rem] text-gray-700 font-bold text-4xl md:justify-center px-8 md:pt-10'> <img src={devLinkIcon} alt="/" /> devlinks</div>
+        <div className='flex items-center gap-[0.5rem] text-gray-700 font-bold text-4xl md:justify-center px-8 pt-8 md:pt-10'> <img src={devLinkIcon} alt="/" /> devlinks</div>
         <div className='w-full md:max-w-119 mx-auto px-8 md:p-10 flex flex-col justify-center gap-10 md:bg-white'>
             <div className='leading-[150%]'>
                 <h2 className='text-[2rem] font-bold text-[#333] leading-[150%]' >Login</h2>
