@@ -1,42 +1,38 @@
-import React, {useReducer} from 'react'
+import React, {useReducer, useState} from 'react'
+import {initialState, formReducer} from '../reducer/LoginFormReducer'
 
-const initialState = {
-    email:{
-    value: '',
-    isValid : false,
-    isTouched : false
-    },
-password :{
-    value: '',
-    isValid : false,
-    isTouched : false
-    }
-}
-const formReducer = (state, {type, payload}) =>{
-    switch(type){
-        case 'SET_EMAIL':
-            return {...state, email: {value:payload, isValid: true ,isTouched:true}, submitted:false}
-        case 'SET_PASSWORD':
-            return {...state, password: payload, submitted:false}
-        case 'SUBMIT':
-            return {...state, submitted:true}
-        default:
-            return state
-    }
-}
+
 import devLinkIcon from '../assets/devlinkIcon.png'
 
 import emailIcon from '../assets/EmailIcon.png'
 import passwordIcon from '../assets/PasswordLockIcon.png'
 export default function Login() {
-    const [state, dispatch] = useReducer(formReducer, initialState)
+    // const [state, dispatch] = useReducer(formReducer, initialState)
+    const [email, setEmail] = useState( {
+        email:{
+        value: '',
+        isValid : false,
+        isTouched : false
+        },
+    password :{
+        value: '',
+        isValid : false,
+        isTouched : false
+        }
+    })
+    const handleEmail = (value)=>{
+        console.log(state,'state')
+        // return dispatch({type: 'SET_EMAIL', payload:value})
+        setEmail(value)
+    }
     const handleSubmit = (e) =>{
         e.preventDefault()
         dispatch({type: 'SUBMIT'})
-        console.log(state.submitted, 'submitted')
     }
+    
+    
     return (
-    <div className='font-Instrument-sans flex flex-col gap-16 md:gap-12 bg-black/3 h-screen '>
+    <div className= {`font-Instrument-sans flex flex-col gap-16 md:gap-12 bg-black/3 h-screen`}>
         <div className='flex items-center gap-[0.5rem] text-gray-700 font-bold text-4xl md:justify-center px-8 pt-8 md:pt-10'> <img src={devLinkIcon} alt="/" /> devlinks</div>
         <div className='w-full md:max-w-119 mx-auto px-8 md:p-10 flex flex-col justify-center gap-10 md:bg-white'>
             <div className='leading-[150%]'>
@@ -51,9 +47,11 @@ export default function Login() {
                     <label htmlFor="email" className='text-[0.75rem] text-[#333]' >Email address</label>
                     <div className='flex gap-4 items-center p-4 text-[#D9D9D9] border-[0.0625rem] rounded-[0.5rem]'> <img  className='object-cover w-[0.8125rem] h-[0.625rem]' src={emailIcon} alt="/" /> <input className='font-[1rem] text-[#333333]' type="email"
                     placeholder='e.g. alex@email.com'
-                    value = {state.email}
-                    onChange ={(e)=> dispatch({type: 'SET_EMAIL', payload: e.target.value})}
+                    
+                    onChange ={(e)=>handleEmail(e.target.value)}
+                    value = {email?.value}
                     />
+                    
                     </div>
                 </div>
                 <div className='flex flex-col gap-2'>
@@ -64,7 +62,7 @@ export default function Login() {
                     className='font-[1rem] text-[#333333]' 
                     type="password"  
                     placeholder='Enter your password'
-                    value = {state.password}
+                    value = "{password.value}"
                     onChange ={(e)=> dispatch({type: 'SET_PASSWORD', payload: e.target.value})}
 
                     />
