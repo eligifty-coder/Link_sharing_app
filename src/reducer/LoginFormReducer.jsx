@@ -18,7 +18,6 @@ export const actionTypes = {
     SET_EMAIL : 'SET_EMAIL',
     SET_PASSWORD :'SET_PASSWORD',
     SUBMIT : 'SUBMIT'
-
 }
 export const formReducer = (state = initialState, action) =>{
     const { payload} = action

@@ -6,6 +6,24 @@ import devLinkIcon from '../assets/devlinkIcon.png'
 
 import emailIcon from '../assets/EmailIcon.png'
 import passwordIcon from '../assets/PasswordLockIcon.png'
+
+const initialState = { email:{
+        value: '',
+        isValid : false,
+        isTouched : false
+        },
+    password :{
+        value: '',
+        isValid : false,
+        isTouched : false
+        }
+    }
+
+    export const actionTypes = {
+    SET_EMAIL : 'UPDATE_EMAIL',
+    SET_PASSWORD :'UPDATE_PASSWORD',
+    SUBMIT : 'SUBMIT'
+}
 export default function Login() {
     // const [state, dispatch] = useReducer(formReducer, initialState)
     const [email, setEmail] = useState( {
@@ -21,13 +39,13 @@ export default function Login() {
         }
     })
     const handleEmail = (value)=>{
-        console.log(state,'state')
+        console.log(email,'state')
         // return dispatch({type: 'SET_EMAIL', payload:value})
         setEmail(value)
     }
     const handleSubmit = (e) =>{
         e.preventDefault()
-        dispatch({type: 'SUBMIT'})
+        // dispatch({type: 'SUBMIT'})
     }
     
     
