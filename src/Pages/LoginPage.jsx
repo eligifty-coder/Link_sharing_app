@@ -43,12 +43,15 @@ export default function Login() {
             >
                 <div className='flex flex-col gap-2'>
                     <label htmlFor="email" className='text-[0.75rem] text-[#333]' >Email address</label>
-                    <div className= {classNames }> <img  className='object-cover w-[0.8125rem] h-[0.625rem]' src={emailIcon} alt="/" /> <input className='border-none font-[1rem] text-[#333333]' type="email"
+                    <div className= {classNames }>
+                        <div className='flex items-center gap-2'>
+                            <img  className='object-cover w-[0.8125rem] h-[0.625rem]' src={emailIcon} alt="/" /> <input className='border-none font-[1rem] text-[#333333]' type="email"
                     placeholder='e.g. alex@email.com'
                     
                     value={formState.email.value}
                     onChange={(e) => handleEmailChange(e.target.value)}
                     />
+                        </div>
                     
                     </div>
                 </div>
