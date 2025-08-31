@@ -17,6 +17,7 @@ export const initialState = {
 export const actionTypes = {
     UPDATE_EMAIL: "UPDATE_EMAIL",
     UPDATE_PASSWORD: "UPDATE_PASSWORD",
+    SUBMIT: "SUBMIT"
 };
 
 export const loginFormReducer = (state = initialState, action) => {
