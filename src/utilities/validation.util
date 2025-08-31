@@ -1,6 +1,6 @@
 
 
-export const validatedLength = (value, minValue)=>{
+export const validateLength = (value, minValue)=>{
     return value.length >=  minValue
 }
 

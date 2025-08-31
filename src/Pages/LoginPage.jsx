@@ -1,48 +1,27 @@
-import React, {useReducer, useState} from 'react'
-import {initialState, formReducer} from '../reducer/LoginFormReducer'
+import React, {useReducer} from 'react'
+
+// import {initialState, formReducer} from '../reducer/LoginFormReducer'
 
 
 import devLinkIcon from '../assets/devlinkIcon.png'
 
 import emailIcon from '../assets/EmailIcon.png'
 import passwordIcon from '../assets/PasswordLockIcon.png'
+import {initialState, actionTypes , loginFormReducer} from '../reducer/LoginFormReducer'
 
-const initialState = { email:{
-        value: '',
-        isValid : false,
-        isTouched : false
-        },
-    password :{
-        value: '',
-        isValid : false,
-        isTouched : false
-        }
-    }
 
-    export const actionTypes = {
-    SET_EMAIL : 'UPDATE_EMAIL',
-    SET_PASSWORD :'UPDATE_PASSWORD',
-    SUBMIT : 'SUBMIT'
-}
+
+
+
+
 export default function Login() {
-    // const [state, dispatch] = useReducer(formReducer, initialState)
-    const [email, setEmail] = useState( {
-        email:{
-        value: '',
-        isValid : false,
-        isTouched : false
-        },
-    password :{
-        value: '',
-        isValid : false,
-        isTouched : false
-        }
-    })
-    const handleEmail = (value)=>{
-        console.log(email,'state')
-        // return dispatch({type: 'SET_EMAIL', payload:value})
-        setEmail(value)
-    }
+    const [formState, dispatch] = useReducer(loginFormReducer, initialState);
+
+    const handleEmailChange = (value) =>
+    dispatch({ type: actionTypes.UPDATE_EMAIL, payload: value });
+
+    const handlePasswordChange = (value) =>
+    dispatch({ type: actionTypes.UPDATE_PASSWORD, payload: value });
     const handleSubmit = (e) =>{
         e.preventDefault()
         // dispatch({type: 'SUBMIT'})
@@ -66,8 +45,8 @@ export default function Login() {
                     <div className='flex gap-4 items-center p-4 text-[#D9D9D9] border-[0.0625rem] rounded-[0.5rem]'> <img  className='object-cover w-[0.8125rem] h-[0.625rem]' src={emailIcon} alt="/" /> <input className='font-[1rem] text-[#333333]' type="email"
                     placeholder='e.g. alex@email.com'
                     
-                    onChange ={(e)=>handleEmail(e.target.value)}
-                    value = {email?.value}
+                    value={formState.email.value}
+                    onChange={(e) => handleEmailChange(e.target.value)}
                     />
                     
                     </div>
@@ -80,8 +59,8 @@ export default function Login() {
                     className='font-[1rem] text-[#333333]' 
                     type="password"  
                     placeholder='Enter your password'
-                    value = "{password.value}"
-                    onChange ={(e)=> dispatch({type: 'SET_PASSWORD', payload: e.target.value})}
+                    value={formState.password.value}
+                    onChange={(e) => handlePasswordChange(e.target.value)}
 
                     />
                     </div>
@@ -99,5 +78,5 @@ export default function Login() {
             </form>
         </div>
     </div>
-  )
+)
 }
